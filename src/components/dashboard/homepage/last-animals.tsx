@@ -201,15 +201,15 @@ export function LastAnimals( props: LastAnimalsProps ) {
   return (
     <div className="bg-indigo-50/60 flex-col col-span-2 gap-8 rounded-2xl flex px-8 py-12 ">
       <h3 className="text-18 font-bold">Últimos animais registrados</h3>
-      <div className=" gap-16 columns-2 max-[980px]:columns-1 max-[1240px]:gap-8">
+      <div className=" gap-16 columns-2 max-[980px]:columns-1 max-[1240px]:gap-8 overflow-x-scroll">
         {dozePrimeirosAnimais.map( ( animal ) => {
           return animal ? (
-            <div key={animal.id} className="flex gap-16 max-[1240px]:gap-8 border-b border-gray-200 py-2 max-[980px]:gap-28">
-              <p className="py-2 ">{animal.id}</p>
-              <p className="py-2 ">{animal.name}</p>
-              <p className="py-2 ">{animal.especie}</p>
-              <p className="py-2 ">{animal.maturidade}</p>
-              <p className="py-2 ">{animal.dataDeCadastro}</p>
+            <div key={animal.id} className="flex gap-16 max-[1240px]:gap-8 border-b border-gray-200 py-2 max-[980px]:gap-28 max-sm:gap-10">
+              <p className="py-2 shrink-0">{animal.id}</p>
+              <p className="py-2 shrink-0">{animal.name}</p>
+              <p className="py-2 shrink-0">{animal.especie}</p>
+              <p className="py-2 shrink-0">{animal.maturidade}</p>
+              <p className="py-2 shrink-0">{animal.dataDeCadastro}</p>
             </div>
           ) : null;
         } )}
