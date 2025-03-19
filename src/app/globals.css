@@ -8,6 +8,8 @@
   --text-16:16px;
   --text-14:14px;
   --text-12:12px;
+
+  --breakpoint-wrapper: 1064px;
 }
 
 body {

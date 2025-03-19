@@ -6,8 +6,9 @@ export default function Home() {
 
 
 
+
   return (
-    <div className="flex h-screen w-screen">
+    <div className="flex  h-dvh w-dvw">
       <div className="w-[480px] max-sm:p-4 max-2xl:w-full flex-col shrink-0 bg-indigo-50/70 h-full flex sm:items-center  sm:justify-center ">
         <div className="bg-white max-sm:h-full p-8 rounded-2xl gap-4 flex flex-col py-12">
           <div className="flex flex-col items-center gap-8">
@@ -16,11 +17,11 @@ export default function Home() {
           </div>
           <form className="flex flex-col items-center gap-4">
             <input
-              className="min-w-[260px] text-18 font-light border-gray-400 rounded-2xl ring-gray-400 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className="min-w-[260px] text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite seu e-mail"
               type="text" />
             <input
-              className="min-w-[260px] text-18 font-light border-gray-400 rounded-2xl ring-gray-400 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className="min-w-[260px] text-18 outline-none font-light border-gray-400 focus:ring-2 rounded-2xl ring-gray-400 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite sua senha"
               type="text" />
             <button className="bg-indigo-500 flex hover:bg-indigo-700 transition-colors duration-200 items-center gap-2 justify-center font-medium text-indigo-50 h-[50px] min-w-[260px] rounded-2xl">
