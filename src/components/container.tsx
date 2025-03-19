@@ -8,7 +8,7 @@ interface ContainerProps extends React.ComponentProps<'section'> {
 
 export function Container( { children, className }: ContainerProps ) {
   return (
-    <section className={twMerge( "m-auto  w-full max-w-[1280px] max-wrapper:px-4 transition-all ", className )}>
+    <section className={twMerge( "m-auto  w-full max-w-[1280px] max-wrapper:px-4 transition-all  px-4", className )}>
       {children}
     </section>
   );
