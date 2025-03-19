@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme  {
+  --text-24:24px;
+  --text-22:22px;
+  --text-20:20px;
+  --text-18:18px;
+  --text-16:16px;
+  --text-14:14px;
+  --text-12:12px;
+}
+
+body {
+  @apply text-neutral-800;
+  font-family: Inter;
+  --webkit-font-smoothing: antialiased;
+  } 
