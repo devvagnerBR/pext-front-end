@@ -15,7 +15,7 @@ export function Detalhes( { id, name }: DetalhesProps ) {
       <div className="bg-gray-100/70 rounded-2xl p-8 flex flex-col gap-4">
         <div className="flex gap-2 items-center">
           <h4 className="font-semibold text-18">Nome:</h4>
-          <h5 className="font-light">Frids</h5>
+          <h5 className="font-light capitalize">{name}</h5>
         </div>
         <div className="flex gap-2 items-center">
           <h4 className="font-semibold text-18">Id do Chip:</h4>
