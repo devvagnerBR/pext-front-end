@@ -8,7 +8,7 @@ export interface DetalhesPageProps { params: { slug: string[] } }
 export default async function EditarPage( { params }: DetalhesPageProps ) {
 
 
-  const [id, name] = params.slug;
+  const [id, name] = await params.slug;
 
   // fazer a requisição para pegar os dados do animal pelo id;
 
