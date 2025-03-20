@@ -26,16 +26,22 @@ export function EntrarForm() {
 
   async function handleSignIn( data: authZodData ) {
 
-    // const response = await fetch( "https://petx-v4.onrender.com/api/auth/login",
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify( { email: data.email, password: data.password } )
-    //   } );
+    const response = await fetch( "https://petx-v4.onrender.com/api/auth/login",
+      {
+        method: 'POST',
 
-    // console.log( response );
+
+        headers: {
+          'Content-Type': 'application/json',
+          mode: 'cors',
+
+
+
+        },
+        body: JSON.stringify( { email: data.email, password: data.password } )
+      } );
+
+    console.log( response );
 
 
 

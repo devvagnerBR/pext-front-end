@@ -11,8 +11,8 @@ export function Detalhes( { id, name }: DetalhesProps ) {
 
 
   return (
-    <div className=" max-[1280px]:p-4 w-fit gap-8 flex  " >
-      <div className="bg-gray-100/70 rounded-2xl p-8 flex flex-col gap-4">
+    <div className=" max-[1280px]:p-4 w-fit gap-8 flex  max-md:flex max-md:flex-col max-md:w-full" >
+      <div className="bg-gray-100/70 rounded-2xl p-8 flex flex-col gap-4 max-md:order-2  max-md:p-4 max-md:gap-2">
         <div className="flex gap-2 items-center">
           <h4 className="font-semibold text-18">Nome:</h4>
           <h5 className="font-light capitalize">{name}</h5>
@@ -26,7 +26,6 @@ export function Detalhes( { id, name }: DetalhesProps ) {
           <h5 className="font-light">Poodle</h5>
         </div>
         <div className="flex gap-2 items-center">
-          <h4 className="font-semibold text-18">Maturidade:</h4>
           <h5 className="font-light">IDOSO</h5>
         </div>
         <div className="flex gap-2 items-center">
@@ -59,19 +58,19 @@ export function Detalhes( { id, name }: DetalhesProps ) {
         </div>
         <div className="flex gap-2 items-center">
           <h4 className="font-semibold text-18">lsAnimaisConjunto:</h4>
-          <h5>que é um array</h5>
+          <h5>Arr[]</h5>
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <Link href={`/dashboard/animais/editar/${id}/${name.toLowerCase()}/editar`} className=" cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
+        <Link href={`/dashboard/animais/editar/${id}/${name.toLowerCase()}/editar`} className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
           <PencilSimple size={20} />
           Editar
         </Link>
-        <Link href={``} className=" cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
+        <Link href={``} className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
           {/* <PencilSimple size={20} /> */}
           Declarar Óbito
         </Link>
-        <Link href={``} className=" cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
+        <Link href={``} className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
           {/* <PencilSimple size={20} /> */}
           Remover do Cadastro
         </Link>
