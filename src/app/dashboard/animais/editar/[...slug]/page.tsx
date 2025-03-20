@@ -3,12 +3,15 @@ import { Detalhes } from "@/components/dashboard/animais/detalhes/detalhes";
 import { EditarForm } from "@/components/dashboard/animais/editar/editar-form";
 import { CadastroForm } from "@/components/dashboard/animais/novo/cadastro-form";
 
-export interface DetalhesPageProps { params: { slug: string[] } }
+export interface DetalhesPageProps {
+  params: Promise<{ slug: string[] }>
+}
 
 export default async function EditarPage( { params }: DetalhesPageProps ) {
 
+  const { slug } = await params;
+  const [id, name] = slug;
 
-  const [id, name] = await params.slug;
 
   // fazer a requisição para pegar os dados do animal pelo id;
 

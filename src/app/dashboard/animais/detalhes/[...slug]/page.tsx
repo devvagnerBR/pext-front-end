@@ -2,7 +2,7 @@ import { Container } from "@/components/container";
 import { Detalhes } from "@/components/dashboard/animais/detalhes/detalhes";
 
 export interface DetalhesPageProps {
-  params: { slug: string[] }
+  params: Promise<{ slug: string[] }>
 }
 
 export default async function DetalhesPage( { params }: DetalhesPageProps ) {
