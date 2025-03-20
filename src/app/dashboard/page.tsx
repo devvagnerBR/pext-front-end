@@ -7,7 +7,7 @@ export default async function DashboardPage() {
 
 
   return (
-    <Container className="mt-16 flex flex-col gap-4 p-2 max-lg:mt-2">
+    <Container className="mt-16  flex flex-col gap-4 p-2 max-lg:mt-2">
       <div className=" w-full grid grid-cols-2 gap-4 max-md:grid-cols-1">
         <CardAnimal
           src="/assets/icon-dog.svg"

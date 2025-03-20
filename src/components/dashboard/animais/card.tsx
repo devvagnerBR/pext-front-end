@@ -1,4 +1,5 @@
 import { FloppyDisk } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 
 interface CardProps {
   animal: {
@@ -14,7 +15,7 @@ interface CardProps {
 
 export function Card( { animal }: CardProps ) {
 
-  const { name, microchip, type, breed, status, date } = animal;
+  const { name, microchip, type, breed, status, date, id } = animal;
 
   return (
     <div className="p-8 max-[1280px]:p-4 rounded-2xl bg-gray-100/70 border border-transparent hover:border-indigo-400 transition-all duration-100">
@@ -38,10 +39,10 @@ export function Card( { animal }: CardProps ) {
         <p className=" text-14">{date}</p>
       </div>
 
-      <button className="mt-8 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
+      <Link href={`/dashboard/animais/detalhes/${id}/${name.toLowerCase()}`} className="mt-8 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
         <FloppyDisk size={20} />
         Ver
-      </button>
+      </Link>
     </div>
   );
 }

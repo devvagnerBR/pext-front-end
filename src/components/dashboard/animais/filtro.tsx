@@ -1,10 +1,12 @@
 'use client'
 
 import { PaperPlaneTilt } from "@phosphor-icons/react";
+import Link from "next/link";
 
 interface FiltroProps { }
 
 export function Filtro( props: FiltroProps ) {
+  // todo fazer paginação dos animais
 
   return (
     <div className="flex justify-between flex-wrap gap-4 max-[461px]:gap-1 ">
@@ -18,10 +20,10 @@ export function Filtro( props: FiltroProps ) {
           Pesquisar
         </button>
       </form>
-      <button className="cursor-pointer max-[670px]:mt-2 bg-indigo-500 flex hover:bg-indigo-700 transition-colors duration-200 items-center gap-2 justify-center font-medium text-indigo-50 h-[50px] px-6 rounded-2xl">
+      <Link href="animais/novo" className="cursor-pointer max-[670px]:mt-2 bg-indigo-500 flex hover:bg-indigo-700 transition-colors duration-200 items-center gap-2 justify-center font-medium text-indigo-50 h-[50px] px-6 rounded-2xl">
         <PaperPlaneTilt size={20} />
         Cadastrar novo
-      </button>
+      </Link>
     </div>
   );
 }
