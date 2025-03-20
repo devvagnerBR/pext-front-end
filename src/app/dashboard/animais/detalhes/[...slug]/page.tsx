@@ -1,12 +1,15 @@
 import { Container } from "@/components/container";
 import { Detalhes } from "@/components/dashboard/animais/detalhes/detalhes";
 
-export interface DetalhesPageProps { params: { slug: string[] } }
+export interface DetalhesPageProps {
+  params: Promise<{ slug: string[] }>
+}
 
 export default async function DetalhesPage( { params }: DetalhesPageProps ) {
 
+  const { slug } = await params;
+  const [id, name] = slug;
 
-  const [id, name] = params.slug;
 
   // fazer a requisição para pegar os dados do animal pelo id;
 
