@@ -19,7 +19,7 @@ export function Header( props: HeaderProps ) {
           <Link href="/dashboard/animais">Animais</Link>
           {/* <Link href="/dashboard">Estoque</Link> */}
           {/* <Link href="/dashboard">Configurações</Link> */}
-          <Link href="">Sair</Link>
+          <Link href="/">Sair</Link>
         </div>
       </Container>
     </header>
