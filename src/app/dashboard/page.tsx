@@ -1,9 +1,30 @@
+import { getTheLastRegisteredAnimals } from "@/actions/get-the-last-twelve";
 import { Container } from "@/components/container";
 import { CardAnimal } from "@/components/dashboard/homepage/card-animal";
 import { LastAnimals } from "@/components/dashboard/homepage/last-animals";
+import { ANIMAL_TYPE } from "@/types/animal";
 export interface DashboardPageProps { }
 
 export default async function DashboardPage() {
+
+  const lastAnimals = await getTheLastRegisteredAnimals() as ANIMAL_TYPE[];
+
+  const dogsCount = lastAnimals.filter( animal => animal.especie === "cachorro" );
+  const catsCount = lastAnimals.filter( animal => animal.especie === "gato" );
+
+  function calculateFoodRemaining( animals: ANIMAL_TYPE[], foodQuantity: number ) {
+
+    const kilosPerDay = 0.45;
+
+    const foodPerDay = animals.reduce( ( total, animal ) => {
+      return total + kilosPerDay;
+    }, 0 );
+
+    return foodQuantity / foodPerDay;
+  }
+
+  const dogsDaysRemaining = calculateFoodRemaining( dogsCount, 100 );
+  const catsDaysRemaining = calculateFoodRemaining( catsCount, 100 );
 
 
   return (
@@ -12,19 +33,19 @@ export default async function DashboardPage() {
         <CardAnimal
           src="/assets/icon-dog.svg"
           cardTitle="Cachorros"
-          animalQuantity={212}
-          foodQuantity={298}
-          daysRemaining={12}
+          animalQuantity={dogsCount.length}
+          foodQuantity={100}
+          daysRemaining={Math.floor( dogsDaysRemaining )}
           color="green" />
         <CardAnimal
           src="/assets/icon-cat-red.svg"
-          animalQuantity={212}
+          animalQuantity={catsCount.length}
           cardTitle="Gatos"
-          foodQuantity={298}
-          daysRemaining={12}
+          foodQuantity={100}
+          daysRemaining={Math.floor( catsDaysRemaining )}
           color="red" />
       </div>
-      <LastAnimals />
+      <LastAnimals animals={lastAnimals} />
     </Container>
   );
 }

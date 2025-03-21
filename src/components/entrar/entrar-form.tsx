@@ -3,7 +3,9 @@
 import { authenticate } from "@/actions/authenticate";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignIn } from "@phosphor-icons/react";
-import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
 
 
@@ -17,6 +19,10 @@ type authZodData = z.infer<typeof authZodSchema>
 
 export function EntrarForm() {
 
+  const router = useRouter();
+
+  const [errorMessage, setErrorMessagge] = useState( '' );
+
   const {
     register,
     reset,
@@ -26,26 +32,18 @@ export function EntrarForm() {
 
   async function handleSignIn( data: authZodData ) {
 
-    const response = await fetch( "https://petx-v4.onrender.com/api/auth/login",
-      {
-        method: 'POST',
+    setErrorMessagge( '' );
+
+    const submit = await authenticate( data ) as { message: string } | { token: string };
+
+    if ( 'message' in submit ) {
+      console.log( submit.message );
+      setErrorMessagge( submit.message );
+    } else {
+      await router.push( '/dashboard' );
+    }
 
 
-        headers: {
-          'Content-Type': 'application/json',
-          mode: 'cors',
-
-
-
-        },
-        body: JSON.stringify( { email: data.email, password: data.password } )
-      } );
-
-    console.log( response );
-
-
-
-    // reset();
   }
 
 
@@ -61,15 +59,16 @@ export function EntrarForm() {
         type="text" />
       <input
         {...register( 'password' )}
-        className="min-w-[260px] text-18 outline-none font-light border-gray-400 focus:ring-2 rounded-2xl ring-gray-400 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+        className="min-w-[260px] text-14 tracking-widest outline-none font-light border-gray-400 focus:ring-2 rounded-2xl ring-gray-400 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
         placeholder="Digite sua senha"
-        type="text" />
+        type="password" />
       <button
         type="submit"
         className="max-[400px]:min-w-[280px] bg-indigo-500 flex cursor-pointer hover:bg-indigo-700 transition-colors duration-200 items-center gap-2 justify-center font-medium text-indigo-50 h-[50px] min-w-[260px]  rounded-2xl">
         <SignIn size={20} />
         Entrar
       </button>
+      <p className={`  flex items-center text-14 text-red-400 tracking-wider`}>{errorMessage}</p>
       <a className="underline text-gray-500 text-12 underline-offset-2 decoration-gray-500 tracking-wider" href="">Esqueceu a senha?</a>
     </form>
   );
