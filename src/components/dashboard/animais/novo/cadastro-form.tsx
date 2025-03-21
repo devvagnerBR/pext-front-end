@@ -1,3 +1,4 @@
+
 'use client'
 
 import Link from "next/link";
@@ -11,69 +12,78 @@ export function CadastroForm( props: CadastroFormProps ) {
       <div className="bg-gray-100/70 max-sm:mt-4 rounded-2xl p-16 max-md:p-4 grid grid-cols-2  gap-8 max-md:gap-4 max-md:grid-cols-1">
         <div className=" flex flex-col gap-4">
           <label htmlFor="" className="flex flex-col gap-2 font-semibold">
-            Nome do animal
+            Nome do animal:
             <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className="bg-neutral-50 text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite seu e-mail"
               type="text" />
           </label>
           <div className="flex gap-4 w-full justify-between flex-wrap">
             <label htmlFor="" className="flex max-[1250px]:w-full flex-col gap-2 font-semibold">
-              Idade
+              Código do microchip:
               <input
-                className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75 pl-4"
+                className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75 pl-4"
                 placeholder="Digite seu e-mail"
                 type="text" />
             </label>
             <label htmlFor="" className="flex  max-[1250px]:w-full flex-col gap-2 font-semibold">
-              Sexo
+              Maturidade:
               <input
-                className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75 pl-4"
+                className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75 pl-4"
                 placeholder="Digite seu e-mail"
                 type="text" />
             </label>
           </div>
           <label htmlFor="" className="flex flex-col gap-2 font-semibold">
-            Comportamento
+            Raça:
             <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite seu e-mail"
               type="text" />
           </label>
           <label htmlFor="" className="flex flex-col gap-2 font-semibold">
-            Animal conjunto
-            <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
-              placeholder="Digite seu e-mail"
-              type="text" />
+            Sexo:
+            <select
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4">
+              <option value="Macho">Macho</option>
+              <option value="Fêmea">Fêmea</option>
+            </select>
           </label>
         </div>
         <div className=" flex flex-col gap-4">
           <label htmlFor="" className="flex flex-col gap-2 font-semibold">
-            Espécie
+            Origem:
             <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
-              placeholder="Digite seu e-mail"
-              type="text" />
-          </label>
-          <label htmlFor="" className="flex flex-col gap-2 font-semibold">
-            Raça
-            <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite seu e-mail"
               type="text" />
           </label>
           <label htmlFor="" className="flex flex-col gap-2 font-semibold">
             Porte
             <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite seu e-mail"
               type="text" />
           </label>
           <label htmlFor="" className="flex flex-col gap-2 font-semibold">
-            Doenças
+            Comportamento
             <input
-              className=" text-18 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
+              placeholder="Digite seu e-mail"
+              type="text" />
+          </label>
+          <label htmlFor="" className="flex flex-col gap-2 font-semibold">
+            Espécie:
+            <select
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4">
+              <option value="Cachorro">Cachorro</option>
+              <option value="Gato">Gato</option>
+            </select>
+          </label>
+          <label htmlFor="" className="flex flex-col gap-2 font-semibold">
+            Doenças:
+            <input
+              className=" text-18 bg-neutral-50 outline-none font-light border-gray-400 rounded-2xl ring-gray-400 focus:ring-2 ring focus:ring-indigo-500 h-[50px] transition-all duration-75  pl-4"
               placeholder="Digite seu e-mail"
               type="text" />
           </label>

@@ -1,3 +1,4 @@
+import { getAnimalById } from "@/actions/get-animal-by-id";
 import { Container } from "@/components/container";
 import { Detalhes } from "@/components/dashboard/animais/detalhes/detalhes";
 
@@ -11,6 +12,10 @@ export default async function DetalhesPage( { params }: DetalhesPageProps ) {
   const [id, name] = slug;
 
 
+  const animalById = await getAnimalById( id );
+
+
+
   // fazer a requisição para pegar os dados do animal pelo id;
 
 
@@ -21,8 +26,7 @@ export default async function DetalhesPage( { params }: DetalhesPageProps ) {
     <Container className="mt-16 flex flex-col gap-4 max-lg:mt-2">
       <h1 className="text-20 font-semibold">Ficha do animal</h1>
       <Detalhes
-        id={id}
-        name={name}
+        animal={animalById}
       />
 
 

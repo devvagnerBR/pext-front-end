@@ -37,7 +37,6 @@ export function EntrarForm() {
     const submit = await authenticate( data ) as { message: string } | { token: string };
 
     if ( 'message' in submit ) {
-      console.log( submit.message );
       setErrorMessagge( submit.message );
     } else {
       await router.push( '/dashboard' );

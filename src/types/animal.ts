@@ -18,3 +18,11 @@ export interface ANIMAL_TYPE {
   parent: ANIMAL_TYPE;
   children: ANIMAL_TYPE[];
 }
+
+export interface ANIMAL_DATA {
+  currentPage: number;
+  data: ANIMAL_TYPE[];
+  nextPage: number;
+  totalPages: number;
+  totalAnimals: number;
+}
