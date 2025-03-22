@@ -44,7 +44,7 @@ export function Pagination( { totalPage, onSetFilteredAnimals, search }: Paginat
   }
 
 
-
+  if ( totalPage <= 1 ) return null
   return (
     <div className="mt-2 flex w-full justify-end">
       <div className="flex gap-2">

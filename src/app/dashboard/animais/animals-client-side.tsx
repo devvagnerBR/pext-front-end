@@ -37,8 +37,6 @@ export function AnimalsClientSide( { animals }: AnimalsClientSideProps ) {
 
 
 
-
-
   return (
     <>
       <Filtro

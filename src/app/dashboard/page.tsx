@@ -18,8 +18,8 @@ export default async function DashboardPage() {
     return foodQuantity / foodPerDay;
   }
 
-  const dogsDaysRemaining = calculateFoodRemaining( animalsCount.cachorros, 240 );
-  const catsDaysRemaining = calculateFoodRemaining( animalsCount.gatos, 182 );
+  const dogsDaysRemaining = calculateFoodRemaining( animalsCount.cachorros, 100 );
+  const catsDaysRemaining = calculateFoodRemaining( animalsCount.gatos, 100 );
 
 
   return (
@@ -29,14 +29,14 @@ export default async function DashboardPage() {
           src="/assets/icon-dog.svg"
           cardTitle="Cachorros"
           animalQuantity={animalsCount.cachorros}
-          foodQuantity={240}
+          foodQuantity={100}
           daysRemaining={Math.floor( dogsDaysRemaining )}
           color="green" />
         <CardAnimal
           src="/assets/icon-cat-red.svg"
           animalQuantity={animalsCount.gatos}
           cardTitle="Gatos"
-          foodQuantity={182}
+          foodQuantity={100}
           daysRemaining={Math.floor( catsDaysRemaining )}
           color="red" />
       </div>
