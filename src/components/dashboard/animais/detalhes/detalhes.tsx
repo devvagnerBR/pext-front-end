@@ -16,6 +16,7 @@ export function Detalhes( { animal }: DetalhesProps ) {
     especie,
     raca,
     createdAt,
+    parentId,
     doencas,
     maturidade,
     origem,
@@ -25,7 +26,6 @@ export function Detalhes( { animal }: DetalhesProps ) {
     comportamento,
     children,
   } = animal;
-
 
 
   return (
@@ -79,7 +79,7 @@ export function Detalhes( { animal }: DetalhesProps ) {
         </div>
         <div className="flex gap-2 items-center">
           <h4 className="font-semibold text-18">Esse animal tem parentes?:</h4>
-          <h5>{children.length > 0 ? "Sim" : "Não"}</h5>
+          <h5>{parentId ? "Sim" : "Não"}</h5>
         </div>
       </div>
       <div className="flex flex-col gap-4">

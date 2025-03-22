@@ -1,30 +1,25 @@
+import { getAnimalsCount } from "@/actions/get-animals-count";
 import { getTheLastRegisteredAnimals } from "@/actions/get-the-last-twelve";
 import { Container } from "@/components/container";
 import { CardAnimal } from "@/components/dashboard/homepage/card-animal";
 import { LastAnimals } from "@/components/dashboard/homepage/last-animals";
-import { ANIMAL_TYPE } from "@/types/animal";
+import { ANIMAL_DATA, ANIMAL_TYPE } from "@/types/animal";
 export interface DashboardPageProps { }
 
 export default async function DashboardPage() {
 
-  const lastAnimals = await getTheLastRegisteredAnimals() as ANIMAL_TYPE[];
+  const lastAnimals = await getTheLastRegisteredAnimals() as ANIMAL_DATA;
+  const animalsCount = await getAnimalsCount();
 
-  const dogsCount = lastAnimals.filter( animal => animal.especie === "cachorro" );
-  const catsCount = lastAnimals.filter( animal => animal.especie === "gato" );
-
-  function calculateFoodRemaining( animals: ANIMAL_TYPE[], foodQuantity: number ) {
+  function calculateFoodRemaining( count: number, foodQuantity: number ) {
 
     const kilosPerDay = 0.45;
-
-    const foodPerDay = animals.reduce( ( total, animal ) => {
-      return total + kilosPerDay;
-    }, 0 );
-
+    const foodPerDay = kilosPerDay * count;
     return foodQuantity / foodPerDay;
   }
 
-  const dogsDaysRemaining = calculateFoodRemaining( dogsCount, 100 );
-  const catsDaysRemaining = calculateFoodRemaining( catsCount, 100 );
+  const dogsDaysRemaining = calculateFoodRemaining( animalsCount.cachorros, 240 );
+  const catsDaysRemaining = calculateFoodRemaining( animalsCount.gatos, 182 );
 
 
   return (
@@ -33,19 +28,19 @@ export default async function DashboardPage() {
         <CardAnimal
           src="/assets/icon-dog.svg"
           cardTitle="Cachorros"
-          animalQuantity={dogsCount.length}
-          foodQuantity={100}
+          animalQuantity={animalsCount.cachorros}
+          foodQuantity={240}
           daysRemaining={Math.floor( dogsDaysRemaining )}
           color="green" />
         <CardAnimal
           src="/assets/icon-cat-red.svg"
-          animalQuantity={catsCount.length}
+          animalQuantity={animalsCount.gatos}
           cardTitle="Gatos"
-          foodQuantity={100}
+          foodQuantity={182}
           daysRemaining={Math.floor( catsDaysRemaining )}
           color="red" />
       </div>
-      <LastAnimals animals={lastAnimals} />
+      <LastAnimals animals={lastAnimals.data} />
     </Container>
   );
 }
