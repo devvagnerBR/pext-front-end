@@ -14,13 +14,6 @@ export default async function DetalhesPage( { params }: DetalhesPageProps ) {
 
   const animalById = await getAnimalById( id );
 
-
-
-  // fazer a requisição para pegar os dados do animal pelo id;
-
-
-
-
   return (
 
     <Container className="mt-16 flex flex-col gap-4 max-lg:mt-2">

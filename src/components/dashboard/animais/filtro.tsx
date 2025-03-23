@@ -35,7 +35,6 @@ export function Filtro( { onSetFilteredAnimals, onSetSearch }: FiltroProps ) {
 
   async function handleSearch( data: searchZodData ) {
     const animals = await getAllAnimals( data.q, 1 )
-
     onSetFilteredAnimals( animals )
   }
 

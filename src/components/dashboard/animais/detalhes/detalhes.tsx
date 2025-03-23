@@ -1,6 +1,11 @@
+'use client'
+
+import { deleteAnimal } from "@/actions/delete-animal";
+import { revalidateTagHook } from "@/actions/revalidate-tag";
 import { ANIMAL_TYPE } from "@/types/animal";
 import { FloppyDisk, PencilSimple } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface DetalhesProps {
 
@@ -8,6 +13,8 @@ interface DetalhesProps {
 }
 
 export function Detalhes( { animal }: DetalhesProps ) {
+
+  const router = useRouter();
 
   const {
     id,
@@ -26,6 +33,17 @@ export function Detalhes( { animal }: DetalhesProps ) {
     comportamento,
     children,
   } = animal;
+
+  async function handleDeleteAnimal() {
+    const response = await deleteAnimal( id );
+    console.log( response );
+    if ( response ) {
+      await revalidateTagHook( 'all-animals' );
+      await revalidateTagHook( 'update-last-animals' );
+      await revalidateTagHook( 'update-animal-by-id' );
+      router.push( '/dashboard/animais' );
+    }
+  }
 
 
   return (
@@ -91,10 +109,12 @@ export function Detalhes( { animal }: DetalhesProps ) {
           {/* <PencilSimple size={20} /> */}
           Declarar Óbito
         </Link>
-        <Link href={``} className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
+        <button
+          onClick={handleDeleteAnimal}
+          className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
           {/* <PencilSimple size={20} /> */}
           Remover do Cadastro
-        </Link>
+        </button>
       </div>
     </div>
   );

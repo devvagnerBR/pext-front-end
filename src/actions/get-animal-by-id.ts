@@ -9,6 +9,7 @@ export async function getAnimalById( id: string ) {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const reponse = await fetch( `${baseUrl}/animal/${id}`, {
+    method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'

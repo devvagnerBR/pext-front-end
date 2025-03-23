@@ -35,11 +35,10 @@ export function EntrarForm() {
     setErrorMessagge( '' );
 
     const submit = await authenticate( data ) as { message: string } | { token: string };
-
     if ( 'message' in submit ) {
       setErrorMessagge( submit.message );
     } else {
-      await router.push( '/dashboard' );
+      router.push( '/dashboard' );
     }
 
 
@@ -62,10 +61,11 @@ export function EntrarForm() {
         placeholder="Digite sua senha"
         type="password" />
       <button
+        disabled={isSubmitting}
         type="submit"
         className="max-[400px]:min-w-[280px] bg-indigo-500 flex cursor-pointer hover:bg-indigo-700 transition-colors duration-200 items-center gap-2 justify-center font-medium text-indigo-50 h-[50px] min-w-[260px]  rounded-2xl">
         <SignIn size={20} />
-        Entrar
+        {isSubmitting ? 'Entrando...' : 'Entrar'}
       </button>
       <p className={`  flex items-center text-14 text-red-400 tracking-wider`}>{errorMessage}</p>
       <a className="underline text-gray-500 text-12 underline-offset-2 decoration-gray-500 tracking-wider" href="">Esqueceu a senha?</a>
