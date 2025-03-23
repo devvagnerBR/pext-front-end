@@ -105,15 +105,17 @@ export function Detalhes( { animal }: DetalhesProps ) {
           <PencilSimple size={20} />
           Editar
         </Link>
-        <Link href={``} className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
-          {/* <PencilSimple size={20} /> */}
+
+        {/* <Link href={``} className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
           Declarar Óbito
-        </Link>
+        </Link> */}
+
+
         <button
           onClick={handleDeleteAnimal}
           className="shrink-0 cursor-pointer w-full bg-gray-50 border border-gray-700 flex hover:bg-indigo-100 hover:border-indigo-400 transition-colors duration-100 items-center gap-2 justify-center font-medium text-neutral-700 hover:text-indigo-700 h-[50px] px-6 rounded-2xl">
           {/* <PencilSimple size={20} /> */}
-          Remover do Cadastro
+          Remover Cadastro
         </button>
       </div>
     </div>
