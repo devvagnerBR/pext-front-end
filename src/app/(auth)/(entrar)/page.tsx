@@ -2,6 +2,7 @@
 
 import { EntrarForm } from "@/components/entrar/entrar-form";
 import { SignIn } from "@phosphor-icons/react";
+import { Pwa } from "./pwa";
 
 export default function Home() {
 
@@ -17,7 +18,7 @@ export default function Home() {
             <h1 className="text-20">Faça o login</h1>
           </div>
           <EntrarForm />
-
+          <Pwa />
         </div>
       </div>
       <div className="w-full items-center justify-center flex max-2xl:hidden">
