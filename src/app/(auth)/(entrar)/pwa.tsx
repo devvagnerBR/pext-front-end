@@ -31,7 +31,7 @@ export function Pwa( props: PwaProps ) {
     }
   };
 
-  if ( showPrompt ) return null;
+  if ( !showPrompt ) return null;
 
   return (
     <div className="fixed bottom-4 right-4 bg-white p-4 shadow-lg rounded-xl border z-50">
